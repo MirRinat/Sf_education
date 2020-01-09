@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06c9b798-a42d-4846-9f16-d7860d5f44bc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Python_SF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_SF.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture6_FinFiles/dataframeVsDataseries.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture6_FinFiles/dataframeVsDataseries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture6_FinFiles/externalData.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture6_FinFiles/externalData.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dataframeVsDataseries">
+  <component name="RunManager" selected="Python.externalData">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,9 +199,6 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture6_FinFiles" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -222,8 +216,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.dataframeVsDataseries" />
         <item itemvalue="Python.externalData" />
+        <item itemvalue="Python.dataframeVsDataseries" />
         <item itemvalue="Python.Loops_to_Test" />
         <item itemvalue="Python.Loops_To_Fill" />
         <item itemvalue="Python.analysingHoldings" />
@@ -253,7 +247,7 @@
       <workItem from="1578046876916" duration="10092000" />
       <workItem from="1578064633770" duration="17333000" />
       <workItem from="1578474117588" duration="440000" />
-      <workItem from="1578564348877" duration="1793000" />
+      <workItem from="1578564348877" duration="5550000" />
     </task>
     <servers />
   </component>
