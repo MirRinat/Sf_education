@@ -5,7 +5,6 @@
       <option name="ignoredErrors">
         <list>
           <option value="W605" />
-          <option value="E111" />
         </list>
       </option>
     </inspection_tool>
@@ -22,7 +21,6 @@
           <option value="int.is_integer" />
           <option value="list.extend" />
           <option value="int.append" />
-          <option value="Homework1_5" />
         </list>
       </option>
     </inspection_tool>
