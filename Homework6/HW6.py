@@ -9,7 +9,7 @@ import datetime as date
 #10-Year
 start = '2014-01-02'
 end = '2016-01-02'
-tickers = ["DGS6MO","DGS1","DGS5","DGS10"]
+tickers = ["DGS6MO","DGS1","DGS5","DGS10"] #тут можно убрать DGS10,и результирующий dataframe не будет пуст
 dgs = wb.DataReader(tickers,'fred',start,end)
 dgs = dgs.dropna()
 #Шаг 2( 5 баллов ): Определите среднее и стандартную дивиацию для каждой из кривых( кривая это 6-month, 1 year, и т.д.)
@@ -25,5 +25,9 @@ print("Стандартное отклонение\n", avg)
 
 #Шаг 3( 5 баллов ): Выберете только те даты которые имеют показателе выше или ниже avg +/- 1 std
 dgsOneSigma = dgs[(dgs > (avg + stdDev)) | (dgs < (avg - stdDev))]
-
+dgsOneSigma.dropna(inplace=True)
 print(dgsOneSigma)
+
+#Шаг 5( 5 баллов): Сохраните сгенерированный файл как sigma.xlsx
+#Загрузите этот заполенный файл и sigma.xlsx
+dgsOneSigma.to_excel('sigma.xlsx')
