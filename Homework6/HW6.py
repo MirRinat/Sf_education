@@ -47,37 +47,34 @@ dfTenYearMean = dfTenYear.mean()
 
 #Шаг 3( 5 баллов ): Выберете только те даты которые имеют показателе выше или ниже avg +/- 1 std
 
-dfSixMonth = dfSixMonth[dfSixMonth > (dfSixMonthStd + dfSixMonthMean) |
-                        dfSixMonth < (dfSixMonthStd - dfSixMonthMean)]
-dfOneYear = dfOneYear[dfOneYear > (dfOneYearStd + dfOneYearMean) |
-                        dfOneYear < (dfOneYearStd - dfOneYearMean)]
-dfFiveYear = dfFiveYear[dfFiveYear > (dfFiveYearStd + dfFiveYearMean) |
-                        dfFiveYear < (dfFiveYearStd - dfFiveYearMean)]
-dfTenYear = dfTenYear[dfTenYear > (dfTenYearStd + dfTenYearMean) |
-                        dfTenYear < (dfTenYearStd - dfTenYearMean)]
+# for tic in tickers:
+#     dgs[tic] = dgsDict[[(dgsDict[tic]) > (avgDict[tic] + stdDict[tic]) | (dgsDict[tic] < (avgDict[tic] - stdDict[tic]))]]
+#     # print(dgsSigmaDict[tic])
+
+
+dfSixMonth = dfSixMonth[(dfSixMonth > (dfSixMonthStd + dfSixMonthMean)) |
+                        (dfSixMonth < (dfSixMonthStd - dfSixMonthMean))]
+dfOneYear = dfOneYear[(dfOneYear > (dfOneYearStd + dfOneYearMean)) |
+                      (dfOneYear < (dfOneYearStd - dfOneYearMean))]
+dfFiveYear = dfFiveYear[(dfFiveYear > (dfFiveYearStd + dfFiveYearMean)) |
+                        (dfFiveYear < (dfFiveYearStd - dfFiveYearMean))]
+dfTenYear = dfTenYear[(dfTenYear > (dfTenYearStd + dfTenYearMean)) |
+                      (dfTenYear < (dfTenYearStd - dfTenYearMean))]
+dfSixMonth = dfSixMonth.dropna()
+dfFiveYear.dropna(inplace=True)
+dfOneYear.dropna(inplace=True)
+dfTenYear.dropna(inplace=True)
 
 
 #Шаг 4( 10 баллов ): Создайте объединенную dataframe в которой будут только те даты, которые будут больше или меньше
 # avg +/- 1 std. Hint: подумайте про joins для dataframes из Шаг 3
 
-dfUnited =
+dfUnited1 = dfSixMonth.join(dfOneYear,how = "inner")
+dfUnited2 = dfUnited1.join(dfFiveYear,how = "inner")
+dfUnited = dfUnited2.join(dfTenYear)
+#print(dfUnited)
 
-
-
-
-# for tic in tickers:
-#     dgs[tic] = dgsDict[[(dgsDict[tic]) > (avgDict[tic] + stdDict[tic]) | (dgsDict[tic] < (avgDict[tic] - stdDict[tic]))]]
-#     # print(dgsSigmaDict[tic])
-
-# dgsSixMonth = dgs[(dgs['DGS6MO'] > (avgDict['DGS6MO'] + stdDict['DGS6MO'])) |
-#                   (dgs['DGS6MO'] < (avgDict['DGS6MO'] -  stdDict['DGS6MO']))]
-# dgsOneYear = dgs[(dgs["DGS1"] > (avgDict["DGS1"] + stdDict["DGS1"])) |
-#                   (dgs["DGS1"] < (avgDict["DGS1"] - stdDict["DGS1"]))]
-# dgsFiveYear = dgs[(dgs["DGS5"] > (avgDict["DGS5"] + stdDict["DGS5"])) |
-#                   (dgs["DGS5"] < (avgDict["DGS5"] -  stdDict["DGS5"]))]
-# dgsTenYear = dgs[(dgs["DGS10"] > (avgDict["DGS10"] + stdDict["DGS10"])) |
-#                   (dgs["DGS10"] < (avgDict["DGS10"] -  stdDict["DGS10"]))]
 
 #Шаг 5( 5 баллов): Сохраните сгенерированный файл как sigma.xlsx
 #Загрузите этот заполенный файл и sigma.xlsx
-# dgsOneSigma.to_excel('sigma.xlsx')
+dfUnited.to_excel('sigma.xlsx')
