@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/Python_SF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_SF.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework6/HW6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Homework6/HW6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,20 +44,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lecture8_DS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Downloads/2b7764415abe3d5fc101d022a3839c19" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Lecture8_DS" />
+      <recent name="$PROJECT_DIR$/Homework6" />
+      <recent name="$PROJECT_DIR$/Lecture5/src/lessonCode" />
+      <recent name="$PROJECT_DIR$/Homework1.5" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Lecture6_FinFiles/example" />
       <recent name="$PROJECT_DIR$/Lecture5/example/src" />
       <recent name="C:\Users\Argon\PycharmProjects\Python_SF" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Homework6" />
-      <recent name="$PROJECT_DIR$/Lecture5/src/lessonCode" />
-      <recent name="$PROJECT_DIR$/Homework1.5" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -140,6 +141,9 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -155,13 +159,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="histogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="histogram (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/Source Files" />
       <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/Source Files/histogram.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="histogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Python_SF" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -178,6 +201,9 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -193,35 +219,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="statisticalWork" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture6_FinFiles" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture6_FinFiles/statisticalWork.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.histogram" />
+        <item itemvalue="Python.histogram (1)" />
         <item itemvalue="Python.scaterPlot" />
         <item itemvalue="Python.basicGraphs" />
         <item itemvalue="Python.HW6" />
-        <item itemvalue="Python.statisticalWork" />
       </list>
     </recent_temporary>
   </component>
@@ -256,6 +260,7 @@
       <workItem from="1579111007816" duration="2547000" />
       <workItem from="1579251152281" duration="64000" />
       <workItem from="1580062762673" duration="10244000" />
+      <workItem from="1580287219679" duration="6296000" />
     </task>
     <servers />
   </component>
@@ -283,36 +288,40 @@
           <line>76</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Lecture8_DS/Source Files/histogram.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_SF$HW_String_P1_ToFill.coverage" NAME="HW_String_P1_ToFill Coverage Results" MODIFIED="1576504629763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework1" />
+    <SUITE FILE_PATH="coverage/Python_SF$UsingObjects.coverage" NAME="UsingObjects Coverage Results" MODIFIED="1576514374604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Objects" />
+    <SUITE FILE_PATH="coverage/Python_SF$scratchCSVread.coverage" NAME="scratchCSVread Coverage Results" MODIFIED="1577400520243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_ToFill.coverage" NAME="HW_Arrays_ToFill Coverage Results" MODIFIED="1577140228065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
+    <SUITE FILE_PATH="coverage/Python_SF$scratchCSV.coverage" NAME="scratchCSV Coverage Results" MODIFIED="1577397960891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
     <SUITE FILE_PATH="coverage/Python_SF$HW_String_P1_Observation.coverage" NAME="HW_String_P1_Observation Coverage Results" MODIFIED="1576504029143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework1" />
+    <SUITE FILE_PATH="coverage/Python_SF$simpleFile.coverage" NAME="simpleFile Coverage Results" MODIFIED="1577566464087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files/workingWithFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$excelFile.coverage" NAME="excelFile Coverage Results" MODIFIED="1577573560206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files/workingWithFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$strangeLoops.coverage" NAME="strangeLoops Coverage Results" MODIFIED="1576968577262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture3_Collection" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Observation.coverage" NAME="HW_Arrays_Observation Coverage Results" MODIFIED="1577139148215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
     <SUITE FILE_PATH="coverage/Python_SF$HW0_To_Fill.coverage" NAME="HW0_To_Fill Coverage Results" MODIFIED="1576449138383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework0" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Test.coverage" NAME="HW_Arrays_Test Coverage Results" MODIFIED="1577140232564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
+    <SUITE FILE_PATH="coverage/Python_SF$changefile.coverage" NAME="changefile Coverage Results" MODIFIED="1577656352747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework3" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_String_P1_ToFill.coverage" NAME="HW_String_P1_ToFill Coverage Results" MODIFIED="1576504629763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework1" />
     <SUITE FILE_PATH="coverage/Python_SF$HW0_Test.coverage" NAME="HW0_Test Coverage Results" MODIFIED="1576450178163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework0" />
     <SUITE FILE_PATH="coverage/Python_SF$analysingHoldings.coverage" NAME="analysingHoldings Coverage Results" MODIFIED="1578174061438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture5/src/lessonCode" />
-    <SUITE FILE_PATH="coverage/Python_SF$UsingObjects.coverage" NAME="UsingObjects Coverage Results" MODIFIED="1576514374604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Objects" />
-    <SUITE FILE_PATH="coverage/Sf_education$statisticalWork.coverage" NAME="statisticalWork Coverage Results" MODIFIED="1578583020501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
-    <SUITE FILE_PATH="coverage/Python_SF$scratchCSVread.coverage" NAME="scratchCSVread Coverage Results" MODIFIED="1577400520243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
-    <SUITE FILE_PATH="coverage/Python_SF$changefile.coverage" NAME="changefile Coverage Results" MODIFIED="1577656352747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework3" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Test__1_.coverage" NAME="HW_Arrays_Test (1) Coverage Results" MODIFIED="1577138719986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/arr" />
-    <SUITE FILE_PATH="coverage/Python_SF$excelFile.coverage" NAME="excelFile Coverage Results" MODIFIED="1577573560206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files/workingWithFiles" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Test.coverage" NAME="HW_Arrays_Test Coverage Results" MODIFIED="1577140232564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
-    <SUITE FILE_PATH="coverage/Python_SF$strangeLoops.coverage" NAME="strangeLoops Coverage Results" MODIFIED="1576968577262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture3_Collection" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW_String_P1_Test.coverage" NAME="HW_String_P1_Test Coverage Results" MODIFIED="1576504640692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework1" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW2.coverage" NAME="HW2 Coverage Results" MODIFIED="1577138007340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2" />
-    <SUITE FILE_PATH="coverage/Python_SF$WorkSimple.coverage" NAME="WorkSimple Coverage Results" MODIFIED="1576448912909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LessonPre1/LessonPre1" />
-    <SUITE FILE_PATH="coverage/Python_SF$scratchCSV.coverage" NAME="scratchCSV Coverage Results" MODIFIED="1577397960891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
-    <SUITE FILE_PATH="coverage/Python_SF$statisticalWork.coverage" NAME="statisticalWork Coverage Results" MODIFIED="1578683640614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
-    <SUITE FILE_PATH="coverage/Sf_education$dataframeVsDataseries.coverage" NAME="dataframeVsDataseries Coverage Results" MODIFIED="1578566444776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
-    <SUITE FILE_PATH="coverage/Python_SF$simpleFile.coverage" NAME="simpleFile Coverage Results" MODIFIED="1577566464087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files/workingWithFiles" />
     <SUITE FILE_PATH="coverage/Python_SF$writeFile.coverage" NAME="writeFile Coverage Results" MODIFIED="1578162760333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture5/src/lessonCode" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_ToFill.coverage" NAME="HW_Arrays_ToFill Coverage Results" MODIFIED="1577140228065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
-    <SUITE FILE_PATH="coverage/Python_SF$scratchSimpleFile.coverage" NAME="scratchSimpleFile Coverage Results" MODIFIED="1577317404596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
-    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Observation.coverage" NAME="HW_Arrays_Observation Coverage Results" MODIFIED="1577139148215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/Arrays" />
-    <SUITE FILE_PATH="coverage/Python_SF$scratchArray.coverage" NAME="scratchArray Coverage Results" MODIFIED="1576791877773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture3_Collection" />
+    <SUITE FILE_PATH="coverage/Sf_education$dataframeVsDataseries.coverage" NAME="dataframeVsDataseries Coverage Results" MODIFIED="1578566444776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$WorkSimple.coverage" NAME="WorkSimple Coverage Results" MODIFIED="1576448912909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LessonPre1/LessonPre1" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_Arrays_Test__1_.coverage" NAME="HW_Arrays_Test (1) Coverage Results" MODIFIED="1577138719986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2/arr" />
+    <SUITE FILE_PATH="coverage/Python_SF$statisticalWork.coverage" NAME="statisticalWork Coverage Results" MODIFIED="1578683640614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW2.coverage" NAME="HW2 Coverage Results" MODIFIED="1577138007340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework2" />
     <SUITE FILE_PATH="coverage/Python_SF$excelFile_2.coverage" NAME="excelFile 2 Coverage Results" MODIFIED="1577574179680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files/workingWithFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$HW_String_P1_Test.coverage" NAME="HW_String_P1_Test Coverage Results" MODIFIED="1576504640692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Homework1" />
+    <SUITE FILE_PATH="coverage/Python_SF$scratchSimpleFile.coverage" NAME="scratchSimpleFile Coverage Results" MODIFIED="1577317404596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture4_Files" />
     <SUITE FILE_PATH="coverage/Python_SF$scratchDictionary.coverage" NAME="scratchDictionary Coverage Results" MODIFIED="1576969815634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture3_Collection" />
+    <SUITE FILE_PATH="coverage/Sf_education$statisticalWork.coverage" NAME="statisticalWork Coverage Results" MODIFIED="1578583020501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture6_FinFiles" />
+    <SUITE FILE_PATH="coverage/Python_SF$scratchArray.coverage" NAME="scratchArray Coverage Results" MODIFIED="1576791877773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lecture3_Collection" />
   </component>
 </project>
