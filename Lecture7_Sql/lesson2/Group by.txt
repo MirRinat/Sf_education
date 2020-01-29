@@ -1,0 +1,48 @@
+---подсчет количества строк
+select count(*) as Cnt from AllData
+
+---подсчет количества строк
+select count(*) as Cnt from AllData
+
+---подсчет количества уникальных строк
+select count(*) as Cnt  from 
+(select distinct * from AllData) a
+
+---подсчет количества  строк с рубашками и платьями
+select count(*) as CntPlRub from AllData
+where ClothCategory='Платье' or ClothCategory='Рубашки'
+
+select ClothCategory,
+season,
+--count(*) as cnt, 
+sum(AllReceipts) as sum,
+max(AllReceipts) as max,
+min(AllReceipts) as min,
+avg(AllReceipts) as avg,
+stdev(AllReceipts) as stdev
+from AllData
+--where allcount>30
+group by ClothCategory,season
+order by ClothCategory desc
+
+
+select что_выбрать , что подсчитать (sum(какое-то поле))
+from откуда
+where те записи, которые хотим видеть
+group by - группируем по тому полю , вокруг которого мы агрегируем
+having (условие) фильтр на агрегирующие функции
+order by
+
+select ClothCategory,
+season,clothsilh,
+--count(*) as cnt, 
+sum(AllReceipts) as sum,
+max(AllReceipts) as max,
+min(AllReceipts) as min,
+avg(AllReceipts) as avg,
+stdev(AllReceipts) as stdev
+from AllData
+--where sum>5000
+group by ClothCategory,season,clothsilh
+having sum(AllReceipts)>200
+order by ClothCategory desc

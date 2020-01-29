@@ -1,0 +1,14 @@
+select * from AllData A
+right join Tissue B
+on A.TissueName = B.TissueName
+
+select * from AllData 
+where TissueName IN (select TissueName from Tissue)
+
+select 
+A.*,
+B.TissueProvider from AllData A
+inner join Tissue B
+on A.TissueName = B.TissueName
+where ClothCategory='Платье'
+order by AllCount desc

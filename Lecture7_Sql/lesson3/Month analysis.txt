@@ -1,0 +1,72 @@
+Анализ сезонности по каждому году. Создание представления
+
+---2016 год
+select * from data2016
+---Абсолютная выручка
+select monthtime, sum(allrevenue) SumAllRevenue2016 from
+data2016
+group by monthtime
+order by SumAllRevenue2016 desc
+
+--- + Процентная выручка
+select monthtime, sum(allrevenue) as SumAllRevenue2016 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2016) as SumAllRevenuePercent2016 from
+data2016
+group by monthtime
+order by SumAllRevenuePercent2016 desc
+
+--2017
+--- + Процентная выручка
+select monthtime, sum(allrevenue) as SumAllRevenue2017 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2017) as SumAllRevenuePercent2017 from
+data2017
+group by monthtime
+order by SumAllRevenuePercent2017 desc
+
+
+---Объединение 2016 и 2017 годов
+select 
+M.monthtime, 
+M.SumAllRevenue2016,N.SumAllRevenue2017,
+100*(N.SumAllRevenue2017 - M.SumAllRevenue2016)/M.SumAllRevenue2016 as SumAllRevDiffPerc,
+M.SumAllRevenuePercent2016, N.SumAllRevenuePercent2017,
+N.SumAllRevenuePercent2017 - M.SumAllRevenuePercent2016 as PartDiff
+
+from 
+(select monthtime, sum(allrevenue) as SumAllRevenue2016 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2016) as SumAllRevenuePercent2016 from
+data2016
+group by monthtime) M
+inner join
+(select monthtime, sum(allrevenue) as SumAllRevenue2017 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2017) as SumAllRevenuePercent2017 from
+data2017
+group by monthtime) N
+on M.monthtime = N.monthtime
+
+order by SumAllRevDiffPerc
+
+
+---Создание VIEW
+create view ViewMonthRevenue
+as
+(select 
+M.monthtime, 
+M.SumAllRevenue2016,N.SumAllRevenue2017,
+100*(N.SumAllRevenue2017 - M.SumAllRevenue2016)/M.SumAllRevenue2016 as SumAllRevDiffPerc,
+M.SumAllRevenuePercent2016, N.SumAllRevenuePercent2017,
+N.SumAllRevenuePercent2017 - M.SumAllRevenuePercent2016 as PartDiff
+
+from 
+(select monthtime, sum(allrevenue) as SumAllRevenue2016 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2016) as SumAllRevenuePercent2016 from
+data2016
+group by monthtime) M
+inner join
+(select monthtime, sum(allrevenue) as SumAllRevenue2017 ,
+100*sum(allrevenue)/(select sum(allrevenue) from data2017) as SumAllRevenuePercent2017 from
+data2017
+group by monthtime) N
+on M.monthtime = N.monthtime)
+
+select * from ViewMonthRevenue

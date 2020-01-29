@@ -22,7 +22,7 @@ dfTenYear = wb.DataReader(tickers[3],'fred',start,end)
 #     dgsDict[tic] = wb.DataReader(tic,'fred',start,end)
 #     dgsDict[tic] = dgsDict[tic].dropna()
 # print(dgsDict)
-#dict["DGS6MO"] = wb.DataReader("DGS6MO",'fred',start,end)
+
 #Шаг 2( 5 баллов ): Определите среднее и стандартную дивиацию для каждой из кривых( кривая это 6-month, 1 year, и т.д.)
 # stdDev = dgs.std()
 # avg = dgs.mean()

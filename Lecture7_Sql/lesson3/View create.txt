@@ -1,0 +1,54 @@
+-----Представления
+create view ViewName as
+(script)
+---Создание вью PQ
+create view ViewPQ
+as
+select P.*,
+Q.PercentRevenue2016,
+Q.PercentRevenue2017,
+Q.GrownPercent
+from 
+
+(select a.clothcategory, 
+b.SumRevenue2017,a.SumRevenue2016,
+100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+--(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory) P 
+
+inner join 
+
+(select a.clothcategory, 
+--b.SumRevenue2017,a.SumRevenue2016,
+--100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+b.PercentRevenue2017, a.PercentRevenue2016,
+(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory) Q
+
+
+on P.clothcategory = Q.clothcategory
+
+--Вызов представления
+select * from ViewPQ

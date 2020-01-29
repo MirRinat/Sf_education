@@ -1,0 +1,9 @@
+select clothcategory, sum(AllReceipts) from AllData
+group by clothcategory
+
+
+
+select ClothCategory, sum(AllReceipts)
+from AllData
+where AllReceipts >  (select avg(AllReceipts) from AllData)
+group by ClothCategory

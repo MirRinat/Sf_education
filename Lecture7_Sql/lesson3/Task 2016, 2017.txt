@@ -1,0 +1,119 @@
+Полный анализ выручки в течении года по каждой категории одежды для 2016 и 2017 годов :
+
+--если столбцы из двух таблиц совпадают по названию, по типу , по порядку
+--то их можно склеить с помощью UNION ALL
+select * from data2016
+union all
+select * from data2017
+
+--2016 год
+select clothcategory, sum(AllRevenue) as SumRevenue, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue
+from data2016
+group by clothcategory
+order by SumRevenue desc
+--2017 год
+select clothcategory, sum(AllRevenue) as SumRevenue, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue
+from data2017
+group by clothcategory
+order by SumRevenue desc
+
+--объединенные данные за 2016 за 2017 годы
+select *
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+on a.clothcategory = b.clothcategory
+
+--P объединенные данные за 2016 за 2017 годы, разница выручки
+select a.clothcategory, 
+b.SumRevenue2017,a.SumRevenue2016,
+100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+--(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory
+order by GrownSum
+
+
+--Q объединенные данные за 2016 за 2017 годы, разница долей
+select a.clothcategory, 
+--b.SumRevenue2017,a.SumRevenue2016,
+--100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+b.PercentRevenue2017, a.PercentRevenue2016,
+(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory
+order by GrownPercent desc
+
+
+--общая таблица из собранных данных P + Q
+
+select * from 
+
+(select a.clothcategory, 
+b.SumRevenue2017,a.SumRevenue2016,
+100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+--(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory) P 
+
+inner join 
+
+(select a.clothcategory, 
+--b.SumRevenue2017,a.SumRevenue2016,
+--100*(b.SumRevenue2017-a.SumRevenue2016)/a.SumRevenue2016 as GrownSum
+b.PercentRevenue2017, a.PercentRevenue2016,
+(b.PercentRevenue2017 - a.PercentRevenue2016) as GrownPercent
+from
+(select clothcategory, sum(AllRevenue) as SumRevenue2016, 100*sum(AllRevenue)/(select sum(allrevenue) from data2016) as PercentRevenue2016
+from data2016
+group by clothcategory) a
+
+inner join
+
+(select clothcategory, sum(AllRevenue) as SumRevenue2017, 100*sum(AllRevenue)/(select sum(allrevenue) from data2017) as PercentRevenue2017
+from data2017
+group by clothcategory) b
+
+on a.clothcategory = b.clothcategory) Q
+
+
+on P.clothcategory = Q.clothcategory
+
+order by GrownSum desc

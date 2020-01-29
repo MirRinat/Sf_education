@@ -1,0 +1,58 @@
+Полный анализ по штанам :
+1.Весна-осень
+2.Лето
+3.Зима
+
+(AllCount)
+a.Какие размеры больше/меньше всего продаются? (ClothSize)
+a1.Какие модели больше/меньше всего продаются? (ClothModel)
+b.Какие поставщики тканей для пошива штанов лучше/хуже продаются? Китай/Турция (TissueProveider)
+c.Какой силуэт больше/меньше всего продаются? (ClothSilh)
+
+(AllReceips)
+d.От какого размера штанов наблюдается наибольшая/наименьшая выручка? (ClothSize)
+d1.От какой модели штанов наблюдается наибольшая/наименьшая выручка? (ClothSize)
+e.Какие поставщики тканей для пошива штанов дают большую/меньшую выручку? Китай/Турция (TissueProveider)
+f.Какой силуэт больше/меньше дает выручки? (ClothSilh)
+
+select * from AllData
+where ClothCategory = 'Штаны' 
+
+a.
+select Season,ClothSize, sum(AllCount) as SumAllCount from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothSize
+order by Season,SumAllCount desc
+
+a1.
+select Season,ClothModel, sum(AllCount) as SumAllCount from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothModel
+order by Season,SumAllCount desc
+a11.
+select Season,ClothModel,ClothSize, sum(AllCount) as SumAllCount from AllData
+where ClothCategory = 'Штаны' and Season in ('Зима', 'Весна-осень')
+group by Season,ClothModel,ClothSize
+order by Season,SumAllCount desc
+
+b.
+select a.Season,b.TissueProvider, sum(AllCount) as SumAllCount from AllData a
+left join Tissue b
+on a.TissueName = b.TissueName
+where ClothCategory = 'Штаны' 
+group by a.Season,b.TissueProvider
+order by Season,SumAllCount desc
+
+b1.
+select a.Season,b.TissueProvider,a.ClothSize, sum(AllCount) as SumAllCount from AllData a
+left join Tissue b
+on a.TissueName = b.TissueName
+where ClothCategory = 'Штаны' 
+group by a.Season,b.TissueProvider,a.ClothSize
+order by Season,ClothSize,SumAllCount desc
+
+c.
+select Season,ClothSilh, sum(AllCount) as SumAllCount from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothSilh
+order by Season,SumAllCount desc

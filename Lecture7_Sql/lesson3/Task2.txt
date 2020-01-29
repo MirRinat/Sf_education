@@ -1,0 +1,45 @@
+Полный анализ по штанам :
+1.Весна-осень
+2.Лето
+3.Зима
+
+(AllCount)
+a.Какие размеры больше/меньше всего продаются? (ClothSize)
+a1.Какие модели больше/меньше всего продаются? (ClothModel)
+b.Какие поставщики тканей для пошива штанов лучше/хуже продаются? Китай/Турция (TissueProveider)
+c.Какой силуэт больше/меньше всего продаются? (ClothSilh)
+
+(AllReceips)
+d.От какого размера штанов наблюдается наибольшая/наименьшая выручка? (ClothSize)
+d1.От какой модели штанов наблюдается наибольшая/наименьшая выручка? (ClothSize)
+e.Какие поставщики тканей для пошива штанов дают большую/меньшую выручку? Китай/Турция (TissueProveider)
+f.Какой силуэт больше/меньше дает выручки? (ClothSilh)
+
+select * from AllData
+where ClothCategory = 'Штаны' 
+
+d.
+select Season,ClothSize, sum(AllReceipts) as SumAllReceipts from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothSize
+order by Season,SumAllReceipts desc
+
+d1.
+select Season,ClothModel, sum(AllReceipts) as SumAllReceipts from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothModel
+order by Season,SumAllReceipts desc
+
+e.
+select a.Season,b.TissueProvider, sum(AllReceipts) as SumAllReceipts from AllData a
+left join Tissue b
+on a.TissueName = b.TissueName
+where ClothCategory = 'Штаны' 
+group by a.Season,b.TissueProvider
+order by Season,SumAllReceipts desc
+
+f.
+select Season,ClothSilh, sum(AllReceipts) as SumAllReceipts from AllData
+where ClothCategory = 'Штаны' 
+group by Season,ClothSilh
+order by Season,SumAllReceipts desc
