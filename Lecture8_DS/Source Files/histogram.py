@@ -28,9 +28,10 @@ minDate = spx.index.min()
 maxDate = spx.index.max()
 
 weekendIndex = pd.date_range(minDate,maxDate,freq='W')
-weekstartIndex = weekendIndex.shift(2,freq=pd.datetools.day)
+# weekstartIndex = weekendIndex.shift(2,freq=pd.datetools.day)
 
-spxW = spx.reindex(weekstartIndex)
+spxW = spx.reindex(weekendIndex)
+print(spxW)
 spxW = spxW.dropna()
 spxW = spxW.assign( pctChange = spxW.pct_change() )
 close = spxW['pctChange'].values[1:]
