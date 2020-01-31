@@ -28,7 +28,11 @@ plt.plot(input,mathFunction,'y--')
 predDiff = Yactual - Ypredictor
 avgDiff = Yactual - Yactual.mean()
 r2 = 1 - (predDiff.dot(predDiff)/avgDiff.dot(avgDiff))
+<<<<<<< HEAD
 # print('r2 для нашей модели',r2)
+=======
+print('r2 для нашей модели',r2)
+>>>>>>> 37f245d8c0fc28fa8c7a8290fe4aff48ef8a9e59
 
 
 # plt.grid()
@@ -41,7 +45,14 @@ Ytrain = Yactual.reshape(len(Yactual),1)
 regr.fit(Xtrain,Ytrain)
 Yeasypredicted = regr.predict(Xtrain)
 r2easy = r2_score(Ytrain,Yeasypredicted)
+<<<<<<< HEAD
 print("r2 свяхи цены рубля от нефти",r2easy)
 plt.plot(Xtrain,Yeasypredicted,color='grey')
 
 plt.show()
+=======
+print("r2 изи",r2easy)
+plt.plot(Xtrain,Yeasypredicted,color='grey')
+
+plt.show()
+>>>>>>> 37f245d8c0fc28fa8c7a8290fe4aff48ef8a9e59

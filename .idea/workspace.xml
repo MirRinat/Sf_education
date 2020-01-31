@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06c9b798-a42d-4846-9f16-d7860d5f44bc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +261,7 @@
       <workItem from="1580062762673" duration="10244000" />
       <workItem from="1580287219679" duration="19012000" />
       <workItem from="1580462282644" duration="163000" />
-      <workItem from="1580462899513" duration="7479000" />
+      <workItem from="1580462899513" duration="7736000" />
     </task>
     <servers />
   </component>
