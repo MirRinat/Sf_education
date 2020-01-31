@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06c9b798-a42d-4846-9f16-d7860d5f44bc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture8_DS/Source Files/histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/Source Files/histogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,17 +47,18 @@
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Downloads/2b7764415abe3d5fc101d022a3839c19" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion" />
+      <recent name="$PROJECT_DIR$/Lecture6_FinFiles/example" />
+      <recent name="$PROJECT_DIR$/Lecture5/example/src" />
+      <recent name="C:\Users\Argon\PycharmProjects\Python_SF" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Lecture8_DS/src" />
       <recent name="$PROJECT_DIR$/Lecture8_DS" />
       <recent name="$PROJECT_DIR$/Homework6" />
       <recent name="$PROJECT_DIR$/Lecture5/src/lessonCode" />
       <recent name="$PROJECT_DIR$/Homework1.5" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Lecture6_FinFiles/example" />
-      <recent name="$PROJECT_DIR$/Lecture5/example/src" />
-      <recent name="C:\Users\Argon\PycharmProjects\Python_SF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -73,7 +73,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.simpleRegresion">
+  <component name="RunManager" selected="Python.oilRubRegression">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,6 +97,9 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework7" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -138,6 +141,9 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -153,17 +159,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="histogram (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="histogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/Source Files" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/Source Files/histogram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,17 +181,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="histogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="oilRubRegression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/src/histogram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/oilRubRegression.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -212,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.oilRubRegression" />
         <item itemvalue="Python.simpleRegresion" />
         <item itemvalue="Python.ReadingFile" />
         <item itemvalue="Python.functionsPlotting" />
         <item itemvalue="Python.histogram" />
-        <item itemvalue="Python.histogram (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -251,7 +260,9 @@
       <workItem from="1579111007816" duration="2547000" />
       <workItem from="1579251152281" duration="64000" />
       <workItem from="1580062762673" duration="10244000" />
-      <workItem from="1580287219679" duration="18717000" />
+      <workItem from="1580287219679" duration="19012000" />
+      <workItem from="1580462282644" duration="163000" />
+      <workItem from="1580462899513" duration="7479000" />
     </task>
     <servers />
   </component>
