@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06c9b798-a42d-4846-9f16-d7860d5f44bc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_SF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_SF.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture11_NLP/src/market_comments.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,23 +42,23 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lecture8_DS/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Homework7" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.folder" value="$USER_HOME$/Downloads/2b7764415abe3d5fc101d022a3839c19" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Homework7" />
+      <recent name="$PROJECT_DIR$/Lecture8_DS/src" />
+      <recent name="$PROJECT_DIR$/Lecture8_DS" />
+      <recent name="$PROJECT_DIR$/Homework6" />
+      <recent name="$PROJECT_DIR$/Lecture5/src/lessonCode" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion" />
       <recent name="$PROJECT_DIR$/Lecture6_FinFiles/example" />
       <recent name="$PROJECT_DIR$/Lecture5/example/src" />
       <recent name="C:\Users\Argon\PycharmProjects\Python_SF" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Lecture8_DS/src" />
-      <recent name="$PROJECT_DIR$/Lecture8_DS" />
-      <recent name="$PROJECT_DIR$/Homework6" />
-      <recent name="$PROJECT_DIR$/Lecture5/src/lessonCode" />
-      <recent name="$PROJECT_DIR$/Homework1.5" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -75,7 +73,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.credits_defaults">
+  <component name="RunManager" selected="Python.LogisticRegression">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -95,20 +93,17 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="ReadingFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="LogisticRegression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework11/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework7/ReadingFile.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework11/src/LogisticRegression.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,6 +138,9 @@
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework9/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -158,20 +156,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="functionsPlotting" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hair_salon" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework10/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/src/functionsPlotting.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework10/src/hair_salon.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,7 +197,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="simpleRegresion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="read_excel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_SF" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,12 +205,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Homework7" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lecture8_DS/src/linearRegresion/simpleRegresion.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Homework7/read_excel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.LogisticRegression" />
+        <item itemvalue="Python.hair_salon" />
+        <item itemvalue="Python.read_excel" />
         <item itemvalue="Python.credits_defaults" />
         <item itemvalue="Python.oilRubRegression" />
-        <item itemvalue="Python.simpleRegresion" />
-        <item itemvalue="Python.ReadingFile" />
-        <item itemvalue="Python.functionsPlotting" />
       </list>
     </recent_temporary>
   </component>
@@ -269,6 +264,7 @@
       <workItem from="1580462282644" duration="163000" />
       <workItem from="1580462899513" duration="7736000" />
       <workItem from="1580648569292" duration="10949000" />
+      <workItem from="1581420883795" duration="15333000" />
     </task>
     <servers />
   </component>
