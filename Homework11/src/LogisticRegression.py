@@ -37,7 +37,7 @@ df['Martial-status'].replace(' Married-spouse-absent', 'Widowed',inplace=True)
 # print(df)
 
 #сгрупируйте страны до двух: рожденные в США и нет
-df['Native Country'] = df['Native Country'] .eq(' United-States').astype(int)
+df['Native Country'] = df['Native Country'].eq(' United-States').astype(int)
 
 #вычислите и определите если какие-то параметры скореллированы с друг другом и избавьтесь от одного из них
 corr = df.corr()
@@ -49,9 +49,11 @@ iv.to_excel('../data/Iv.xlsx')
 #dummy encode все не количественные элементы
 
 #уберите все неколичественные элементы которые вы заменили на dummy variables
-to_drop= ['Martial-status', 'Race', 'Sex','Native Country', 'type-of-employment', 'occupation']
-df.drop(to_drop,axis=1,inplace=True)
-# print(df)
+to_ebc= ['Martial-status', 'Race', 'Sex','Native Country', 'type-of-employment', 'occupation','Degree']
+varia = pd.get_dummies(df[to_ebc])
+df.drop(to_ebc,axis=1, inplace=True)
+df = pd.concat([df,varia],axis=1)
+print(df)
 #создайте таблицу в которой только КОЛИЧЕСТВЕННЫЕ значения -- начальные и dummy
 num_df = pd.get_dummies(df)
 num_df.to_excel('../data/num_df.xlsx')
@@ -59,7 +61,7 @@ num_df.to_excel('../data/num_df.xlsx')
 y = num_df['making above 80K']
 X = num_df.drop('making above 80K',axis=1)
 #сделайте разделение на трейнинговый и тестовый сет
-X_train,X_test,y_train,y_test = train_test_split(X,y,train_size=0.8,stratify=y)
+X_train,X_test,y_train,y_test = train_test_split(X,y,train_size=0.7,stratify=y)
 #запустите логистическую регрессию
 clf = LogisticRegression()
 clf.fit(X_train,y_train)
