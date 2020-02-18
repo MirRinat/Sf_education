@@ -1,0 +1,31 @@
+-------------SOLUTION 1
+select distinct id, 
+birth_date, floor(months_between(sysdate, birth_date)/12) as age
+from t_preapr_corporate aa
+inner join d_client bb
+on aa.id = bb.client_mnem
+where floor(months_between(sysdate, birth_date)/12)>=20 and 
+floor(months_between(sysdate, birth_date)/12)<=55;
+-------------SOLUTION 2
+with tmp as
+(select
+aa.*,
+max(addr_lst_dt) over (partition by client_mnem ) max_addr_lst_dt
+from
+(select * from tst_d_addr_client where addr_type='F' and addr_usr='EQ') aa)
+select * from tmp
+where max_addr_lst_dt=addr_lst_dt;
+
+-------------SOLUTION 3
+with tmp as (select distinct * from rrss_products aa inner join f_deal bb on aa.type = bb.product
+where bb.date_lst_mntd='31.12.2999'
+order by aa.type)
+select 
+    CATEGORY_NAME,product, 
+    count(*) as CNT_DEAL, 
+    sum(case when DEAL_STATUS='A' then 1 else null end) as CNT_DEAL_A_STATUS,
+    sum(PRINCIPAL_VALUE) as PRINCIPAL_VALUE_SUM,
+    sum(OVRDUE_PRINCIPAL) as OVRDUE_PRINCIPAL_SUM
+from tmp
+    group by CATEGORY_NAME,product
+    order by product,CATEGORY_NAME;

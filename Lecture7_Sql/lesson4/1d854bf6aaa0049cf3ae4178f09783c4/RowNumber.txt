@@ -1,0 +1,37 @@
+Нумерация строк :
+
+Вывести ТОП-3 самых прибыльных месяца для каждой категории одежды : 
+
+select * from ViewMonthRevenue
+
+---1 часть решения задачи
+select MonthTime,ClothCategory, sum(AllRevenue) as SumRev2016
+from data2016
+group by MonthTime,ClothCategory
+order by ClothCategory,SumRev2016 desc
+
+
+select *,
+row_number() over (partition by monthtime order by allrevenue desc) as rownumber
+from Data2016
+
+--order by AllRevenue desc
+---Общий синтаксис нумерации строк
+row_number() over (partition by столбец order by столбец)
+
+---Решение задачи 2016
+select * from
+(select *,
+row_number() over (partition by clothcategory order by sumrev2016 desc) as rownumb from
+(select MonthTime,ClothCategory, sum(AllRevenue) as SumRev2016
+from data2016 group by MonthTime,ClothCategory) a) a
+where rownumb<4
+
+---Решение задачи 2017
+select * from
+(select *,
+row_number() over (partition by clothcategory order by sumrev2017 desc) as rownumb from
+(select MonthTime,ClothCategory, sum(AllRevenue) as SumRev2017
+from data2017 group by MonthTime,ClothCategory) a) a
+where rownumb<4 and ClothCategory='Рубашка'
+

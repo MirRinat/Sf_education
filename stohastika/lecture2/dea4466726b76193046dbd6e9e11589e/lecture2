@@ -1,0 +1,145 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# short rate model
+
+yieldCurve = {
+                "ON": {"T": 1./365, "yield": 0.0755},
+                "1W": {"T": 7./365, "yield": 0.0758},
+                "2W": {"T": 14./365, "yield": 0.0758},
+                "1M": {"T": 30./365, "yield": 0.0752},
+                "2M": {"T": 60./365, "yield": 0.0743},
+                "3M": {"T": 90./365, "yield": 0.0739},
+                "6M": {"T": 1./2., "yield": 0.0738}
+             }
+
+def yieldToRate(y, t):
+    return np.log(1.0 + y*t)/t
+
+def rateToYield(rate, t):
+    return (np.exp(rate*t)-1.0)/t
+
+def getYield(expiry, curve):
+    timeline = [curve[key]['T'] for key in curve]
+    rates = [yieldToRate(curve[key]['yield'], curve[key]['T']) for key in curve]
+    rate = np.interp(expiry, timeline, rates)
+    return rateToYield(rate,expiry)
+
+t = np.linspace(0.01, 0.5, 250)
+rate = [getYield(expiry, yieldCurve) for expiry in t]
+
+plt.figure("Yield curve interpolation")
+plt.plot(t, rate)
+plt.ylabel('Yield')
+plt.xlabel('Expiry')
+plt.show()
+
+#Fantastic! I know yield for any time point! I can price a simple swap
+# Let's put together a few classes to do that
+
+class Swap:
+    def __init__(s, receiveLeg, payLeg):
+        s.receiveLeg = receiveLeg
+        s.payLeg = payLeg
+
+    def getNpv(s, curve):
+        return - s.payLeg.getNpv(curve) + s.receiveLeg.getNpv(curve)
+
+    def __str__(s):
+        description = "---SWAP---\n"+"payLeg: " + s.payLeg.__str__() + "\n" + "receiveLeg: " + s.receiveLeg.__str__() + "\n----------"
+        return description
+
+class Leg:
+    def __init__(s, cashflows):
+        s.cashflows = cashflows
+
+    def __str__(s):
+        description=""
+        for cashflow in s.cashflows:
+            description += cashflow.__str__()
+        return description
+
+    def getNpv(s, curve):
+        npv = 0
+        for cashflow in s.cashflows:
+            npv += cashflow.getNpv(curve)
+        return npv
+
+class Cashflow:
+    def __init__(s, amount, payTime):
+        s.amount = amount
+        s.payTime = payTime
+
+    def getNpv(s, curve):
+        return s.amount / (1.0 + getYield(s.payTime, curve)*s.payTime)
+
+    def __str__(s):
+        return "(%.3f RUB at %.3f)\n"%(s.amount,s.payTime)
+
+
+# Let's try!
+# e.g. I pay you 1M RUB every month you pay me 6M RUB at the end.
+# How much interest should you pay so that the swap has zero entry price?
+
+payLeg = Leg([Cashflow(1e6, 1./12),
+              Cashflow(1e6, 2./12),
+              Cashflow(1e6, 3./12),
+              Cashflow(1e6, 4./12),
+              Cashflow(1e6, 5./12),
+              Cashflow(1e6, 6./12)])
+
+receiveLeg = Leg([Cashflow(6e6, 6./12)])
+
+ourSwap = Swap(receiveLeg, payLeg)
+
+npv = ourSwap.getNpv(yieldCurve)
+
+print(ourSwap)
+print("Swap price is %.3f"%npv)
+
+zeroCoupon = Cashflow(1, 6./12)
+df = zeroCoupon.getNpv(yieldCurve)
+print("Zero coupon bond in 6M is %.3f"%df)
+interest = npv / df
+
+print("So the value of swap discounted back to 6M is %.3f, adding that to the receiveLeg"%interest)
+
+
+parSwap = Swap(Leg([Cashflow(6e6 - interest, 6./12)]), payLeg)
+
+print(parSwap)
+print("Now swap price should be zero, it is %.3f"%parSwap.getNpv(yieldCurve))
+
+def make_video(images, outimg=None, fps=5, size=None,
+               is_color=True, format="XVID"):
+    """
+    Create a video from a list of images.
+
+    @param      outvid      output video
+    @param      images      list of images to use in the video
+    @param      fps         frame per second
+    @param      size        size of each frame
+    @param      is_color    color
+    @param      format      see http://www.fourcc.org/codecs.php
+    @return                 see http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_gui/py_video_display/py_video_display.html
+
+    The function relies on http://opencv-python-tutroals.readthedocs.org/en/latest/.
+    By default, the video will have the size of the first image.
+    It will resize every image to this size before adding them to the video.
+    """
+    from cv2 import VideoWriter, VideoWriter_fourcc, imread, resize
+    fourcc = VideoWriter_fourcc(*format)
+    vid = None
+    for image in images:
+        if not os.path.exists(image):
+            raise FileNotFoundError(image)
+        img = imread(image)
+        if vid is None:
+            if size is None:
+                size = img.shape[1], img.shape[0]
+            vid = VideoWriter(outvid, fourcc, float(fps), size, is_color)
+        if size[0] != img.shape[1] and size[1] != img.shape[0]:
+            img = resize(img, size)
+        vid.write(img)
+    vid.release()
+    return vid

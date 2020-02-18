@@ -1,0 +1,128 @@
+Сравнительный анализ выручки по категориям одежды 2016 и 2017 годов по месяцам :
+Январь 2016 - Январь 2017
+Ферваль 2016 - Ферваль 2017
+Март 2016 - Март 2017
+Апрель 2016 - Апрель 2017
+....
+select * from data2016
+
+---Январь 2016
+select ClothCategory,monthtime, sum(Allrevenue) as sumrev2016
+from data2016
+where monthtime='Январь'
+group by ClothCategory,monthtime
+order by ClothCategory,sumrev2016 desc
+
+---Январь 2017
+select ClothCategory,monthtime, sum(Allrevenue) as sumrev2017
+from Data2017
+where monthtime='Январь'
+group by ClothCategory,monthtime
+order by ClothCategory,sumrev2017 desc
+
+
+--Соединяем
+select A.ClothCategory,A.MonthTime,A.sumrev2016,B.sumrev2017,
+B.sumrev2017 - A.sumrev2016 as DifFRev,
+100*(B.sumrev2017 - A.sumrev2016)/A.sumrev2016 as GrownPerc
+
+from 
+(select ClothCategory,monthtime, sum(Allrevenue) as sumrev2016
+from data2016
+where monthtime='Февраль'
+group by ClothCategory,monthtime) A
+inner join
+(select ClothCategory,monthtime, sum(Allrevenue) as sumrev2017
+from Data2017
+where monthtime='Февраль'
+group by ClothCategory,monthtime) B
+on A.ClothCategory = B.ClothCategory
+and A.monthtime = B.monthtime
+order by GrownPerc desc
+-------------------------------------------------------------------------------------------
+----Хранимая процедура позволяет хранить скрипты
+----Как создавать процедуры
+
+CREATE PROCEDURE имя_процедуры
+	-- Add the parameters for the stored procedure here
+	@параметр nvarchar(50) --<--- тип параметра
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+    -- Insert statements for procedure here
+	select * from таблица
+	where столбец = @параметр
+END
+GO
+
+-------------------------------------------------------------------------------------------
+---Первая процедура, по вызову она выдает результат запроса select * from data2016
+CREATE PROCEDURE FirstProcedure
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * from Data2016
+END
+GO
+-------------------------------------------------------------------------------------------
+---Запуск процедуры
+exec имя_процедуры
+-------------------------------------------------------------------------------------------
+---Создание процедуры с параметром
+CREATE PROCEDURE FirstProcedureWithParams
+	-- Add the parameters for the stored procedure here
+	@param nvarchar(50) --<--- тип параметра
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * from Data2016
+	where MonthTime = @param
+END
+GO
+---запуск
+exec FirstProcedureWithParams @param = 'Март'
+
+-------------------------------------------------------------------------------------------
+--Последняя процедура - Решение задачи
+CREATE PROCEDURE ProblemSolution
+	-- Add the parameters for the stored procedure here
+	@mnth nvarchar(50) --<--- тип параметра
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+select A.ClothCategory,A.MonthTime,A.sumrev2016,B.sumrev2017,
+B.sumrev2017 - A.sumrev2016 as DifFRev,
+100*(B.sumrev2017 - A.sumrev2016)/A.sumrev2016 as GrownPerc
+
+from 
+(select ClothCategory,monthtime, sum(Allrevenue) as sumrev2016
+from data2016
+where monthtime=@mnth
+group by ClothCategory,monthtime) A
+inner join
+(select ClothCategory,monthtime, sum(Allrevenue) as sumrev2017
+from Data2017
+where monthtime=@mnth
+group by ClothCategory,monthtime) B
+on A.ClothCategory = B.ClothCategory
+and A.monthtime = B.monthtime
+order by GrownPerc desc
+END
+GO
+
+--Запускаем
+exec ProblemSolution @mnth='Ноябрь'

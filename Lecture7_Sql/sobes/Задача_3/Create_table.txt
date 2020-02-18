@@ -1,0 +1,68 @@
+CREATE TABLE CLIENTS
+(
+ID_ VARCHAR(30),
+NAME_ VARCHAR(30),
+CITY_ID_ VARCHAR(30)
+);
+insert into CLIENTS values ('1','Smith','99');
+insert into CLIENTS values ('2','Bond','52');
+insert into CLIENTS values ('3','Lloyd','78');
+insert into CLIENTS values ('4','Miller','33');
+insert into CLIENTS values ('7','Cruz','');
+insert into CLIENTS values ('8','McKinsey','99');
+select * from CLIENTS;
+
+CREATE TABLE PRODUCTS
+(
+ID_ VARCHAR(30),
+NAME_ VARCHAR(30),
+GROUP_ VARCHAR(30)
+);
+insert into PRODUCTS values ('1','Deposit','Liabilities');
+insert into PRODUCTS values ('2','Loan','Assets');
+insert into PRODUCTS values ('3','Card','Assets');
+insert into PRODUCTS values ('4','Account','Liabilities');
+insert into PRODUCTS values ('5','Safe','Liabilities');
+insert into PRODUCTS values ('6','Payroll','Liabilities');
+select * from PRODUCTS;
+
+
+CREATE TABLE CITIES
+(
+ID_ VARCHAR(30),
+NAME_ VARCHAR(30)   
+);
+insert into CITIES values ('99','Msc');
+insert into CITIES values ('78','SPb');
+insert into CITIES values ('51','Nvgr');
+insert into CITIES values ('52','NN');
+insert into CITIES values ('74','Chlbns');
+insert into CITIES values ('33','Vldmr');
+insert into CITIES values ('16','Kzn');
+insert into CITIES values ('67','Smlnsk');
+insert into CITIES values ('72','Tvr');
+select * from CITIES;
+
+
+CREATE TABLE PORTFOLIO
+(
+CLIENT_ID VARCHAR(30),
+PRODUCT_ID VARCHAR(30),
+DATE_FROM DATE,
+DATE_TO DATE
+);
+insert into PORTFOLIO values ('4','3',TO_DATE('01.01.1980', 'dd.mm.yyyy'),TO_DATE('15.12.2018', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('2','2',TO_DATE('15.03.2018', 'dd.mm.yyyy'),TO_DATE('01.01.2045', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('5','3',TO_DATE('21.06.2015', 'dd.mm.yyyy'),TO_DATE('01.11.2018', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('1','5',TO_DATE('02.04.2016', 'dd.mm.yyyy'),TO_DATE('08.12.2019', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('2','4',TO_DATE('07.09.2017', 'dd.mm.yyyy'),TO_DATE('01.01.2019', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('3','3',TO_DATE('08.12.2017', 'dd.mm.yyyy'),TO_DATE('01.01.2045', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('1','6',TO_DATE('05.12.2017', 'dd.mm.yyyy'),TO_DATE('01.01.2045', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('5','3',TO_DATE('16.08.2015', 'dd.mm.yyyy'),TO_DATE('12.11.2016', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('7','1',TO_DATE('02.08.2018', 'dd.mm.yyyy'),TO_DATE('03.09.2018', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('8','3',TO_DATE('17.09.2018', 'dd.mm.yyyy'),TO_DATE('01.01.2045', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('3','4',TO_DATE('29.08.2018', 'dd.mm.yyyy'),TO_DATE('02.01.2019', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('6','3',TO_DATE('05.12.2018', 'dd.mm.yyyy'),TO_DATE('01.10.2022', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('2','3',TO_DATE('15.12.2017', 'dd.mm.yyyy'),TO_DATE('15.12.2018', 'dd.mm.yyyy'));
+insert into PORTFOLIO values ('8','4',TO_DATE('01.01.2018', 'dd.mm.yyyy'),TO_DATE('01.01.2045', 'dd.mm.yyyy'));
+select * from PORTFOLIO;

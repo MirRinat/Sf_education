@@ -1,0 +1,38 @@
+with clients_payments as (
+select EX_2_TABLE_CLIENTS.*,
+  TO_DATE(substr(EX_2_TABLE_PAYMENTS.DATE_ID,1,10),'YYYY-MM-DD')
+  as DATE_ID,
+  EX_2_TABLE_PAYMENTS.PAYMENT_SUM
+  from EX_2_TABLE_CLIENTS 
+inner join EX_2_TABLE_PAYMENTS
+on 
+EX_2_TABLE_CLIENTS.ID = EX_2_TABLE_PAYMENTS.CLIENT_ID),
+
+max_date_of_pay as (
+select id,name, max(DATE_ID) as max_date from clients_payments
+group by id,name order by id),
+
+result as ( select id,name,
+max_date
+from max_date_of_pay
+where TO_DATE('2019-03-15','YYYY-MM-DD') - max_date > 30),
+top3_tmp as (
+select *
+  from clients_payments
+where DATE_ID = to_date('2019-02-01','YYYY-MM-DD')
+order by PAYMENT_SUM desc),
+
+top3 as (select id,NAME,PAYMENT_SUM,
+row_number() over (order by DATE_ID desc) as rownumber 
+from top3_tmp),
+
+result_top_3 as (
+select * from top3
+where rownumber<=3)
+
+select id,name, date_id,PAYMENT_SUM,
+TO_DATE('2019-03-15','YYYY-MM-DD') - DATE_ID,
+DELAY * 30
+
+
+from clients_payments

@@ -1,0 +1,83 @@
+-------------------- 1,2 CREATE TABLE 
+
+create table t_preapr_corporate 
+(id varchar(30));
+insert into t_preapr_corporate values ('1');
+insert into t_preapr_corporate values ('2');
+insert into t_preapr_corporate values ('3');
+insert into t_preapr_corporate values ('4');
+insert into t_preapr_corporate values ('5');
+insert into t_preapr_corporate values ('6');
+insert into t_preapr_corporate values ('7');
+insert into t_preapr_corporate values ('8');
+
+create table d_client (
+client_mnem varchar(30),
+birth_date DATE,
+client_name varchar(30));
+insert into d_client values ('1',TO_DATE('01.01.1980', 'dd.mm.yyyy'), 'Michael Owen');
+insert into d_client values ('2',TO_DATE('01.01.1980', 'dd.mm.yyyy'), 'Michael Owen');
+insert into d_client values ('3',TO_DATE('01.01.1990', 'dd.mm.yyyy'), 'Andrey Arshavin');
+insert into d_client values ('4',TO_DATE('01.01.1970', 'dd.mm.yyyy'), 'Alexander Golovin');
+insert into d_client values ('5',TO_DATE('01.01.1945', 'dd.mm.yyyy'), 'Radamel Falcao');
+insert into d_client values ('6',TO_DATE('01.01.1950', 'dd.mm.yyyy'), 'Peter Crouch');
+insert into d_client values ('7',TO_DATE('01.01.1950', 'dd.mm.yyyy'), 'Arturo Vidal');
+insert into d_client values ('9',TO_DATE('01.01.1990', 'dd.mm.yyyy'), 'Andrea Pirlo');
+
+create table tst_d_addr_client 
+(client_mnem varchar(30),
+addr_type varchar(30),
+addr_usr varchar(30),
+addr_lst_dt DATE,
+addr_postcode varchar(30),
+addr_cntry_cod varchar(30),
+addr_region_type varchar(30),
+addr_region_name varchar(30),
+addr_city varchar(30),
+addr_settl_name varchar(30),
+addr_street_type varchar(30),
+addr_street_name varchar(30),
+addr_house varchar(30), 
+addr_build varchar(30),
+addr_appt varchar(30));
+insert into tst_d_addr_client values ('1','F','EQ',TO_DATE('01.01.2010', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('1','qwe','wwQ',TO_DATE('01.01.2012', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('1','F','EQ',TO_DATE('01.01.2018', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('2','F','EQ',TO_DATE('01.01.2010', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('2','2','EQ',TO_DATE('01.01.2012', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('2','F','EQ',TO_DATE('01.01.2019', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('2','2','EQ',TO_DATE('01.01.2014', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('3','F','EQ',TO_DATE('01.01.2014', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('3','F','EQ',TO_DATE('01.01.2013', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('3','F','EQ',TO_DATE('01.01.2012', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('3','F','EQ',TO_DATE('01.01.2011', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+insert into tst_d_addr_client values ('4','F','EQ',TO_DATE('01.01.2010', 'dd.mm.yyyy'),'1','1','1','1','1','1','1','1','1','1','1');
+
+-------------------- 3 CREATE TABLE
+create table rrss_products
+(category_name varchar(30),
+type varchar(30));
+insert into rrss_products values ('aaa','1');
+insert into rrss_products values ('aaa','2');
+insert into rrss_products values ('bb','3');
+insert into rrss_products values ('c','4');
+insert into rrss_products values ('d','5');
+
+create table f_deal
+(product varchar(30),
+deal_id varchar(30),
+date_lst_mntd varchar(30),
+deal_status varchar(30),
+principal_value float,
+ovrdue_principal float);
+insert into f_deal values ('1','01','31.12.2999','A',120,1);
+insert into f_deal values ('1','02','31.12.2999','A',33,1);
+insert into f_deal values ('1','03','31.12.2999','E',543,23);
+insert into f_deal values ('1','04','31.12.2999','E',333,1);
+insert into f_deal values ('1','05','31.12.2912312399','A',4,1);
+insert into f_deal values ('1','06','31.12.2999','A',0,1);
+insert into f_deal values ('2','07','31.12.2999','A',0,1);
+insert into f_deal values ('2','08','31.12.2999','A',10,1);
+insert into f_deal values ('2','09','31.12.2999','as',110,1);
+insert into f_deal values ('3','10','31.12.2999','A',0,1);
+insert into f_deal values ('3','11','31.12.2999','A',0,1);

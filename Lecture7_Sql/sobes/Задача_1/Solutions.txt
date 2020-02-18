@@ -1,0 +1,60 @@
+with table_a as (select EX_1_TABLE_A.*, EX_1_TABLE_B.SALARY
+              from EX_1_TABLE_A inner join EX_1_TABLE_B
+               on EX_1_TABLE_A.WORKERID = EX_1_TABLE_B.WORKERID
+              ),
+              
+table_salary_max as ( select departmentid, max(salary) as max_salary
+from table_a
+group by departmentid),
+
+final_table as (select table_a.departmentid,
+table_a.workerid,
+table_a.workername,
+table_a.salary
+from table_a
+inner join table_salary_max
+on table_a.departmentid = table_salary_max.departmentid and
+table_a.salary = table_salary_max.max_salary)
+
+select * from final_table
+
+
+with table_a as (select EX_1_TABLE_A.*, EX_1_TABLE_B.SALARY
+              from EX_1_TABLE_A inner join EX_1_TABLE_B
+               on EX_1_TABLE_A.WORKERID = EX_1_TABLE_B.WORKERID
+              ),
+              
+table_salary_mean as ( select departmentid, avg(salary) as avg_salary
+from table_a
+group by departmentid),
+
+final_table as (select table_a.departmentid,
+table_a.workerid,
+table_a.workername,
+table_a.salary
+from table_a
+inner join table_salary_mean
+on table_a.departmentid = table_salary_mean.departmentid and
+table_a.salary = table_salary_mean.avg_salary)
+
+select * from table_salary_mean
+
+
+
+with table_a as (select EX_1_TABLE_A.*, EX_1_TABLE_B.SALARY
+              from EX_1_TABLE_A inner join EX_1_TABLE_B
+               on EX_1_TABLE_A.WORKERID = EX_1_TABLE_B.WORKERID
+              ),
+chief as (select departmentid, 
+          salary as chief_salary from table_a where CHIEFID='None'),
+          
+result as (
+select table_a.workerid, table_a.workername,
+table_a.departmentid,table_a.SALARY,
+table_a.CHIEFID,chief.CHIEF_SALARY
+from table_a inner join chief
+on table_a.departmentid = chief.departmentid
+where table_a.SALARY >chief.CHIEF_SALARY
+order by table_a.departmentid)
+
+select * from table_a

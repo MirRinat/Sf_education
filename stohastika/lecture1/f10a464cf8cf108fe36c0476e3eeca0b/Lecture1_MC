@@ -1,0 +1,133 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# market data
+spot = 1.0
+mu = 0
+sigma = 0.2
+T = 1.0
+
+# numerics
+nbStepsPerYear = 252
+
+# Monte-Carlo engine code start
+def getPath(spot, T, mu=0, sigma=0.2, noiseGen = lambda x : np.random.randn()):
+    # returns a simulated path of the stock
+
+    # propagator
+    def dS(S, mu, sigma, dt, noise):
+        return S * mu * dt + S * sigma * np.sqrt(dt) * noise
+
+    #some numerical setup
+    nbStepsPerYear = 250
+    nbSteps = (int) (nbStepsPerYear * T)
+    path = np.zeros(nbSteps)
+    dt = T / nbSteps
+
+    #our path starts from the current spot
+    path[0] = spot
+
+    #propagate the path according to the model
+    for i in range(1, nbSteps):
+        S = path[i-1]
+        noise = noiseGen(i)
+        S_next = S + dS(S, mu, sigma, dt, noise)
+        path[i] = S_next
+
+    return path
+
+def getLevelAt(spot, T,
+               mu=0,
+               sigma=0.2):
+    return getPath(spot, T, mu, sigma)[-1]
+
+def priceTerminalPayoff(Payoff, spot, T, mu=0,
+                        sigma=0.2, nbIter = 10000):
+    mean = 0
+    std = 0
+
+    for i in range(nbIter):
+        spotAtMat = getLevelAt(spot, T, mu, sigma)
+        payoffAtPath = Payoff(spotAtMat)
+        mean = mean + payoffAtPath
+        std = std + payoffAtPath*payoffAtPath
+
+    mean = mean / nbIter
+    std = std / nbIter
+    std = np.sqrt((std-mean*mean)/nbIter)
+
+    return mean, std
+# Monte-Carlo engine code ends here
+
+# some simple sanity checks
+# first, a few paths graphical test
+for i in range(5):
+    plt.figure("My %s-th MC path"%(i+1))
+    path = getPath(spot, 10.0)
+    plt.plot(path)
+    plt.show()
+# Looks reasonable
+
+# some numerical sanity checks
+constant = lambda x: 1.23
+shouldBeOneDotTwoThree = priceTerminalPayoff(constant, 1.0, 1.0)
+print("We expected 1.23, MC yields %.3f +- %.3f"%shouldBeOneDotTwoThree)
+
+identity = lambda x: x
+shouldBeOne = priceTerminalPayoff(identity, 1.0, 1.0)
+print("We expected 1.0, MC yields %.3f +- %.3f"%shouldBeOne)
+
+
+# Let's use our framework!
+
+# The concept of VAR
+# Let's answer a risk question: what is the probability to lose > 10%
+iLostTenPct = lambda x: 1.0 if x < 0.9 else 0.0
+prob = priceTerminalPayoff(iLostTenPct, 1.0, 1.0)
+print("We expected < 1.0, MC yields %.3f +- %.3f"%prob)
+
+
+# Let's answer a risk question: what is the probability to lose more than LEVEL?
+levels = np.linspace(0.0, 0.9, 10)
+probs = []
+
+for l in levels:
+    iLost = lambda x: 1.0 if x < l else 0.0
+    p, std = priceTerminalPayoff(iLost, 1.0, 1.0)
+    probs.append(p)
+
+plt.figure("Loss function")
+plt.plot(levels, probs)
+plt.ylabel('Probability to lose more than LEVEL')
+plt.xlabel('LEVEL')
+plt.show()
+
+# Not we can look up e.g. 5% VaR - it's around $30
+var = 1.0 - np.interp(0.05, probs, levels)
+print("VAR is %.3f"%var)
+
+
+def getVar(portfolio, percentile=0.05, mu=0.0, sigma=0.2):
+    levels = np.linspace(0.0, 0.9, 10)
+    probs = []
+
+    for l in levels:
+        iLost = lambda S: 1.0 if portfolio(S) < l else 0.0
+        p, std = priceTerminalPayoff(iLost, 1.0, 1.0, sigma=sigma)
+        probs.append(p)
+
+    return 1.0 - np.interp(percentile, probs, levels)
+
+# The concept of Tier Scenario
+# Assume vol jumps to 50%, what will my VAR be?
+# I need to repeat VAR exercise assuming sigma = 50%
+varTier = getVar(lambda S:S,sigma=0.5)
+print("VAR under tier is %.3f"%varTier)
+#Now 5% VAR is more like $63 ;(
+
+#Portfolio of a stock and a put option
+K = 0.8
+myPortfolio = lambda S : S + np.max([K-S,0])
+
+var = getVar(myPortfolio)
+print("Portfolio (stock + 70% put option) VAR is %.3f"%var)

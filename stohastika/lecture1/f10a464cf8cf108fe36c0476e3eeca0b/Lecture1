@@ -1,0 +1,119 @@
+import numpy as np
+import pandas as pd
+
+# load S&P500 historical data from a csv file
+rawData = pd.read_csv("C:\SF\SPX.csv")
+
+# Focus on the End of Day levels, these levels are most commonly used for equity derivatives,
+levels = rawData['Close']
+dates = rawData['Date'].values
+
+# lets plot it!
+import matplotlib.pyplot as plt
+
+plt.figure("Let's just plot S&P500 historical levels over the last 30 years...not sure how to model")
+plt.plot(levels)
+plt.ylabel('S&P500 historical levels')
+plt.xlabel(f'Time (in business days from {dates[0]})')
+plt.show()
+
+# Ok let's look at a 1 year period so that we can
+# roughly assume that economy doesn't change too much
+start = 0
+end = start + 252 * 1
+scopeStart = dates[start]
+scopeEnd = dates[end]
+levelsInScope = levels.values[start:end]
+
+# lets plot it!
+
+plt.figure("Zoom in into period from %s till %s... cool, still not sure how to model"%(scopeStart, scopeEnd))
+plt.plot(levelsInScope)
+plt.ylabel('S&P500 historical levels')
+plt.xlabel(f'Time (in business days from {scopeStart})')
+plt.show()
+
+# Let's plot a histogram
+plt.figure("Histogram maybe? Hmm not sure...")
+hist1 = plt.hist(levelsInScope, bins=70, label='SPX levels')
+plt.legend(loc='upper right')
+plt.show()
+
+# Hmm, not sure what to make out of it
+
+# Let's loot at returns instead
+dailyReturns = np.log(levels.values[1:] / levels.values[:-1])
+dailyReturnsInScope = np.log(levelsInScope[1:] / levelsInScope[:-1])
+
+plt.figure("Let's look at the returns instead..ok kind of fluctuates around some level")
+plt.plot(dailyReturns)
+plt.ylabel('S&P500 historical returns')
+plt.xlabel(f'Time (in business days from {dates[0]})')
+plt.show()
+
+# Ok it fluctuates around some level, not sure what to make out of it
+# but a least looks somewhat the same for all time windows
+
+plt.figure("Zooming in..fluctuations roughly of the same width")
+plt.plot(dailyReturnsInScope)
+plt.ylabel('S&P500 historical returns')
+plt.xlabel(f'Time (in business days from {scopeStart})')
+plt.show()
+
+# Let's look at the histogram
+bins = np.linspace(-0.05, 0.05, 50)
+plt.figure("Histogram now... looks like a Normal distribution, is it?")
+rHist = plt.hist(dailyReturnsInScope, bins)
+plt.show()
+
+# It has a bell shape, is it Normal distribution?
+
+mu = np.average(dailyReturnsInScope)
+sigma = np.std(dailyReturnsInScope)
+
+for i in range(5):
+    plt.figure("Comparing with a sample of the same size, trial %s, (mu, sigma)=(%.3f,%.3f)" % (i + 1, mu, sigma))
+    r = (np.random.randn(len(dailyReturnsInScope)) * sigma + mu)
+    plt.hist(dailyReturnsInScope, bins, alpha=0.5, label='SPX daily returns')
+    plt.hist(r, bins, alpha=0.5,
+             label='Normal returns')
+    plt.legend(loc='upper right')
+    plt.show()
+
+plt.figure("Let's have a lot of normals to reduce noise, using normalized histogram now")
+r = (np.random.randn(100 * len(dailyReturnsInScope)) * sigma + mu)
+plt.hist(dailyReturnsInScope, bins, alpha = 0.5, label='SPX daily returns', normed = True)
+plt.hist(r, bins, alpha = 0.5,
+         label='Normal returns',
+         normed = True)
+
+from scipy.stats import norm
+
+x = np.linspace(-0.05, 0.05, 500)
+y=norm.pdf(x, mu, sigma)
+plt.plot(x, y, label = 'Theoretical')
+
+plt.legend(loc = 'upper right')
+plt.show()
+
+
+plt.figure("Same but for the whole period, using normalized histogram now")
+mu = np.average(dailyReturns)
+sigma = np.std(dailyReturns)
+r = (np.random.randn(len(dailyReturns)) * sigma + mu)
+plt.hist(dailyReturns, bins, alpha = 0.5, label = 'SPX daily returns', normed = True)
+plt.hist(r, bins, alpha = 0.5,
+         label = 'Normal returns',
+         normed = True)
+
+from scipy.stats import norm
+
+x = np.linspace(-0.05, 0.05, 500)
+y = norm.pdf(x, mu, sigma)
+plt.plot(x, y, label = 'Theoretical with sigma %.3f' % sigma)
+
+y = norm.pdf(x, mu, sigma / 1.5)
+plt.plot(x, y, label='Theoretical with sigma %.3f' % (sigma / 1.5))
+
+plt.legend(loc='upper right')
+plt.show()

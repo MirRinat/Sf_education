@@ -1,0 +1,67 @@
+јнализ средней цены в рамках каждой категории :
+
+select 
+*, 1000*AllRevenue/AllCount as ClothPrice
+from Data2017
+where AllCount!='0'
+order by ClothPrice desc
+
+---ќператор редактировани€ записей
+---UPDATE
+update таблица
+set столбец = 'значение'
+where условие
+
+--–едактирование data2017
+update Data2017
+set AllCount = '0'
+where AllRevenue='0'
+
+---ќператор удалени€ записей в таблице
+---DELETE
+delete from таблица
+where condition
+
+delete from таблица --удалит все записи и оставит пустую таблицу
+
+--”далить записи из таблицы Data2016 and Data2017
+--где есть AllRevenue = '0' или AllCount = '0'
+
+--–едактирование таблиц Data2016 and Data2017
+delete from Data2016
+where AllRevenue = '0' or AllCount = '0'
+
+delete from Data2017
+where AllRevenue = '0' or AllCount = '0'
+
+---—редн€€ цена по каждой категории за 2016 M
+select 
+ClothCategory, avg(1000*AllRevenue/AllCount) as ClothPriceAvg2016
+from Data2016
+group by ClothCategory
+order by ClothPriceAvg2016 desc
+
+---—редн€€ цена по каждой категории за 2017 N
+select 
+ClothCategory, avg(1000*AllRevenue/AllCount) as ClothPriceAvg2017
+from Data2017
+group by ClothCategory
+order by ClothPriceAvg2017 desc
+
+
+create view ViewAvgPriceCategory as
+select M.ClothCategory,M.ClothPriceAvg2016, N.ClothPriceAvg2017,
+N.ClothPriceAvg2017 - M.ClothPriceAvg2016 as PriceDiffAbs,
+100*(N.ClothPriceAvg2017 - M.ClothPriceAvg2016) / M.ClothPriceAvg2016 as PriceDiffPerc
+
+ from 
+(select 
+ClothCategory, avg(1000*AllRevenue/AllCount) as ClothPriceAvg2016
+from Data2016
+group by ClothCategory) M
+inner join 
+(select 
+ClothCategory, avg(1000*AllRevenue/AllCount) as ClothPriceAvg2017
+from Data2017
+group by ClothCategory) N
+on M.clothcategory = N.clothcategory
